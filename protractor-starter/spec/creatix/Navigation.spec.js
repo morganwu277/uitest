@@ -36,7 +36,7 @@ describe("Feature: navigation", () => {
   });
 
   describe("responsive menu", () => {
-    const { menuToggle } = contact.getCommon().getHeader();
+    const {menuToggle} = contact.getCommon().getHeader();
 
     beforeAll(() => {
       contact.get();
