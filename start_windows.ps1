@@ -11,5 +11,5 @@ cd C:\Users\vagrant\Desktop\selenium-proxy\target
 # -RedirectStandardInput — Read input from a file specified by path and file name.
 # -RedirectStandardOutput — Send output to a file specified by path and file name.
 
-Start-Process -FilePath "java" -ArgumentList "-cp * org.openqa.grid.selenium.GridLauncherV3 -role node -nodeConfig ../node.json"
+Start-Process -FilePath "java" -ArgumentList "-cp selenium-server-standalone-3.14.0.jar org.openqa.grid.selenium.GridLauncherV3 -role node -nodeConfig ../node.json" -RedirectStandardError ./error.log -RedirectStandardOutput output.log
 

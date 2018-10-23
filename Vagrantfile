@@ -13,10 +13,10 @@ Vagrant.configure("2") do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "xnohat/windows10lite"
-  config.vm.communicator = "winrm"
-  config.winrm.username = "vagrant"
-  config.winrm.password = "vagrant"
-  config.vm.guest = :windows
+#  config.vm.communicator = "winrm"
+#  config.winrm.username = "vagrant"
+#  config.winrm.password = "vagrant"
+#  config.vm.guest = :windows
 
 
   # Disable automatic box update checking. If you disable this, then

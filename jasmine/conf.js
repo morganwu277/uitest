@@ -82,8 +82,17 @@ exports.config = {
     });
   },
 
-  // 
+  // https://stackoverflow.com/questions/34377409/oncleanup-vs-oncomplete-vs-afterlaunch
+  // will be executed once per capability after all tests have finished 
   onCleanUp: function(exitCode) {
+    return browser.getProcessedConfig().then(function(config) {
+      // config.capabilities is the CURRENT capability being run, if
+      // you are using multiCapabilities.
+      console.log('Executing capability', config.capabilities);
+      // issue a remote start for VM
+      // do while - check the VM start returns good ...
+
+    });
     console.log('cleanup....', exitCode);
   },
 
