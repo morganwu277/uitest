@@ -1,5 +1,6 @@
 
 # Install lib
+# use node8
 ```bash
 npm install --save selenium-webdriver
 npm install --save jasmine
@@ -22,11 +23,25 @@ webdriver-manager update
 2. 
 
 
-# Run Jasmine
+Note: Run Jasmine
 `jasmine`
 
 3. install protractor
 ```bash
 npm install -g protractor # install webdriver-manager and protractor
-
+npm install --save protractor
+npm install --save protractor-jasmine2-screenshot-reporter # html and screen reporter
 ```
+
+## for MacOSX safari support 
+```bash
+# execute once only
+# https://developer.apple.com/documentation/webkit/testing_with_webdriver_in_safari
+safaridriver --enable
+```
+
+# save as a vbox 
+```bash
+vagrant package --base <VBoxName> --output <saveFileName>
+```
+

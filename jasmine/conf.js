@@ -1,4 +1,3 @@
-
 // https://www.npmjs.com/package/protractor-jasmine2-screenshot-reporter
 var HtmlScreenshotReporter = require('protractor-jasmine2-screenshot-reporter');
 var reporter = new HtmlScreenshotReporter({
@@ -14,18 +13,18 @@ var reporter = new HtmlScreenshotReporter({
 exports.config = {
   framework: 'jasmine',
   // seleniumAddress: 'http://67.188.225.131:4444/wd/hub',
-  // seleniumAddress: 'http://127.0.0.1:4444/wd/hub',
-  seleniumAddress: 'http://192.168.34.1:4444/wd/hub',
+  seleniumAddress: 'http://127.0.0.1:4444/wd/hub',
+  // seleniumAddress: 'http://192.168.34.1:4444/wd/hub',
   // specs: ['spec/seleniumEx/*.js'],
   specs: ['spec.js'],
   maxSessions: 1,
-// 所以还需要写针对制定的浏览器的指定的操作系统的版本，决定是否要启动虚拟机
-// chorme
-// firefox
-// safari，旧版本的话，需要启动VirtualBox
-// ie11，需要启动VirtualBox
-// edge，需要启动VirtualBox
-// 指定某些浏览器 启动 某些浏览器不启动 
+  // 所以还需要写针对制定的浏览器的指定的操作系统的版本，决定是否要启动虚拟机
+  // chorme
+  // firefox
+  // safari，旧版本的话，需要启动VirtualBox
+  // ie11，需要启动VirtualBox
+  // edge，需要启动VirtualBox
+  // 指定某些浏览器 启动 某些浏览器不启动 
   // multiCapabilities: [{
   //   browserName: 'firefox'
   // }, {
@@ -34,12 +33,14 @@ exports.config = {
   //   browserName: 'internet explorer'
   // }],
   multiCapabilities: [{
-    browserName: 'firefox',
-    customer_key: 'customer_value',
-  },{
-    browserName: 'chrome'
-  },{
-    browserName: 'internet explorer'
+  //   browserName: 'firefox',
+  //   customer_key: 'customer_value',
+  // }, {
+  //   browserName: 'chrome'
+  // }, {
+  //   browserName: 'internet explorer'
+  // }, {
+    browserName: 'safari'
   }],
   jasmineNodeOpts: {
     // 60s
@@ -51,7 +52,7 @@ exports.config = {
 
   // Setup the report before any tests start
   beforeLaunch: function() {
-    return new Promise(function(resolve){
+    return new Promise(function(resolve) {
       reporter.beforeLaunch(resolve);
     });
   },
@@ -59,6 +60,9 @@ exports.config = {
   // Assign the test reporter to each running instance,
   // If multiple capabilities are being run, this will run once per capability.
   onPrepare: function() {
+    // non-angular app  
+    browser.ignoreSynchronization = true;
+
     jasmine.getEnv().addReporter(reporter);
     return browser.getProcessedConfig().then(function(config) {
       // config.capabilities is the CURRENT capability being run, if
@@ -73,7 +77,7 @@ exports.config = {
 
   // Close the report after all tests finish
   afterLaunch: function(exitCode) {
-    return new Promise(function(resolve){
+    return new Promise(function(resolve) {
       reporter.afterLaunch(resolve.bind(this, exitCode));
     });
   },
