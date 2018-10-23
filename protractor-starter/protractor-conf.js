@@ -69,13 +69,14 @@ export const config = {
      * @type {boolean}
      */
     browser.ignoreSynchronization = true;
-    browser.getProcessedConfig().then(_config => {
+    browser.getProcessedConfig().then((_config) => {
       // config.capabilities is the CURRENT capability being run, if
       // you are using multiCapabilities.
       console.log("Executing capability", _config.capabilities);
       // issue a remote start for VM
       // do while - check the VM start returns good ...
       const browserName = _config.capabilities.browserName;
+
       return request(`http://192.168.34.1:4444/grid/admin/MyConsoleServlet/vm?browserName=${browserName}&command=start`, { json: true }, (err, res, body) => {
         if (err) { return console.log(err); }
         console.log(body.url);
@@ -124,7 +125,7 @@ export const config = {
   onCleanUp(exitCode) {
     console.log("cleanup....", exitCode);
 
-    return browser.getProcessedConfig().then(_config => {
+    return browser.getProcessedConfig().then((_config) => {
       // config.capabilities is the CURRENT capability being run, if
       // you are using multiCapabilities.
       console.log("Executing capability", _config.capabilities);
