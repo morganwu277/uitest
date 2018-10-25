@@ -1,4 +1,4 @@
-import {getInputsLabelElement, scrollAndClick} from "./../utils/helpers";
+import { getInputsLabelElement, scrollAndClick } from "./../utils/helpers";
 
 import Contact from "./pages/Contact";
 
@@ -43,7 +43,7 @@ describe("Feature: Contact Form", () => {
 
         describe("when page loads ", () => {
           it("then all project types should not be selected", () => {
-            Object.values(typeInputs).forEach(typeInput => {
+            Object.values(typeInputs).forEach((typeInput) => {
               expect(typeInput.isSelected()).toBe(false);
             });
           });
@@ -51,14 +51,14 @@ describe("Feature: Contact Form", () => {
 
         describe("when all types selected", () => {
           beforeAll(async () => {
-            Object.values(typeInputs).forEach(async typeInput => {
+            Object.values(typeInputs).forEach(async (typeInput) => {
               const label = await getInputsLabelElement(typeInput);
               await scrollAndClick(label);
             });
           });
 
           it("then all project types should be selected", () => {
-            Object.values(typeInputs).forEach(typeInput => {
+            Object.values(typeInputs).forEach((typeInput) => {
               expect(typeInput.isSelected()).toBe(true);
             });
           });
@@ -69,11 +69,11 @@ describe("Feature: Contact Form", () => {
 
             // when expect() is in Promise.then() method body
             // we have to use callback function done()
-            it("test two inputs to have labels with same classes using Promise.then() ", done => {
-              getInputsLabelElement(input1).then(label1 => {
-                getInputsLabelElement(input2).then(label2 => {
-                  label1.getAttribute("class").then(label1Classes => {
-                    label2.getAttribute("class").then(label2Classes => {
+            it("test two inputs to have labels with same classes using Promise.then() ", (done) => {
+              getInputsLabelElement(input1).then((label1) => {
+                getInputsLabelElement(input2).then((label2) => {
+                  label1.getAttribute("class").then((label1Classes) => {
+                    label2.getAttribute("class").then((label2Classes) => {
                       expect(label1Classes).toBe(label2Classes);
                       done();
                     });
@@ -88,9 +88,7 @@ describe("Feature: Contact Form", () => {
               const label1 = await getInputsLabelElement(input1);
               const label2 = await getInputsLabelElement(input1);
 
-              expect(await label1.getAttribute("class")).toBe(
-                await label2.getAttribute("class"),
-              );
+              expect(await label1.getAttribute("class")).toBe(await label2.getAttribute("class"));
             });
           });
         });

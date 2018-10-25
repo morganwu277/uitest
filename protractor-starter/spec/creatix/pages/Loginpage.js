@@ -1,4 +1,4 @@
-import Common from "./Common";
+// import Common from "./Common";
 import Page from "../../utils/Page";
 
 export default class Loginpage extends Page {
@@ -13,10 +13,10 @@ export default class Loginpage extends Page {
       .window()
       .maximize();
 
-    browser.baseUrl = "https://leetcode.com/";
+    browser.baseUrl = "https://leetcode.com";
     browser.get("/accounts/login/");
     this.waitUntilDisplayed();
   };
 
-  getCommon = () => new Common();
+  // getCommon = () => new Common();
 }
