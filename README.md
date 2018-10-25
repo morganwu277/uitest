@@ -40,8 +40,9 @@ npm install --save protractor-jasmine2-screenshot-reporter # html and screen rep
 safaridriver --enable
 ```
 
-# save as a vbox 
+# vagrant vbox operations
 ```bash
 vagrant package --base <VBoxName> --output <saveFileName>
+vagrant box add --name lc/edge edge_win10.vbox
 ```
 

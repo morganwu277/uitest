@@ -4,7 +4,7 @@ const loginPage = new Loginpage();
 
 describe("loginPage", () => {
   describe("when on loginPage", () => {
-    beforeAll(() => {
+    beforeEach(() => {
       loginPage.get();
     });
 

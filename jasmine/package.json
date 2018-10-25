@@ -1,0 +1,17 @@
+{
+  "name": "jasmine",
+  "version": "0.0.6",
+  "scripts": {
+    "start": "yarn run test",
+    "pretest": "yarn install",
+    "test": "yarn run protractor --",
+    "test:multiple": "yarn run test -- --capabilities.shardTestFiles=true --capabilities.maxInstances=3",
+    "protractor": "node_modules/.bin/protractor protractor-conf.js"
+  },
+  "dependencies": {
+    "chromedriver": "^2.33.2",
+    "jasmine-spec-reporter": "^4.2.1",
+    "protractor": "^5.2.0",
+    "protractor-jasmine2-screenshot-reporter": "^0.5.0"
+  }
+}

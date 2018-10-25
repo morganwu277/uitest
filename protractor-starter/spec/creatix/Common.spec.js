@@ -2,13 +2,11 @@ import Homepage from "./pages/Homepage";
 
 const page = new Homepage();
 
-const testLink = (
-  link = {
-    element: undefined,
-    href: "",
-    text: "",
-  },
-) => {
+const testLink = (link = {
+  element: undefined,
+  href: "",
+  text: "",
+}) => {
   describe(`link "${link.text}"`, () => {
     it(`should contain href '${link.href}'`, () => {
       expect(link.element.getAttribute("href")).toContain(link.href);
